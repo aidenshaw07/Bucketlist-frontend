@@ -1,6 +1,6 @@
-import { BucketListItems } from "../components/BucketListItems";
+import { BucketListItems } from "../../components/BucketListItems";
 
-const LoggedInPage = ({ onLogout }: any) => {
+export const LoggedInPage = ({ onLogout }: any) => {
   return (
     <div>
       <h1>Welcome to the Logged In Page!</h1>
@@ -9,5 +9,3 @@ const LoggedInPage = ({ onLogout }: any) => {
     </div>
   );
 };
-
-export default LoggedInPage;

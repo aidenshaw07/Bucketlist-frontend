@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 
-const LoginPage = ({ onLogin }: any) => {
-  const [email, setEmail] = useState("aidenshaw.leo@gmail.com");
-  const [password, setPassword] = useState("Hoppaa");
-
-  const handleEmailChange = (e: any) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e: any) => {
-    setPassword(e.target.value);
-  };
+export const LoginPage = ({
+  onLogin,
+}: {
+  onLogin: (email: string, password: string) => void;
+}) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
     onLogin(email, password);
+  };
+
+  const handleChange = (setState: any) => (e: any) => {
+    setState(e.target.value);
   };
 
   return (
@@ -25,18 +25,19 @@ const LoginPage = ({ onLogin }: any) => {
           type="text"
           placeholder="email"
           value={email}
-          onChange={handleEmailChange}
+          onChange={handleChange(setEmail)}
         />
         <input
           type="password"
           placeholder="password"
           value={password}
-          onChange={handlePasswordChange}
+          onChange={handleChange(setPassword)}
         />
         <button type="submit">Log In</button>
       </form>
+      <h3>
+        You don't have an account? <a href="sign-up">Sign Up here!</a>
+      </h3>
     </div>
   );
 };
-
-export default LoginPage;

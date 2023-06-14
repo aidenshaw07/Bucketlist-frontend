@@ -1,14 +1,14 @@
 import React from "react";
-import LoggedInPage from "./LoggedInPage";
-import LoginPage from "./LoginPage";
-import Spinner from "./Spinner";
+import { LoggedInPage } from "./LoggedInPage";
+import { LoginPage } from "./LoginPage";
+import { Loading } from "./Loading";
 import { useAuth } from "../hooks/useAuth";
 
-const LandingPage = () => {
+export const LandingPage = () => {
   const { loading, loggedIn, handleLogin, handleLogout } = useAuth();
 
   if (loading) {
-    return <Spinner />;
+    return <Loading />;
   }
 
   return loggedIn ? (
@@ -17,5 +17,3 @@ const LandingPage = () => {
     <LoginPage onLogin={handleLogin} />
   );
 };
-
-export default LandingPage;
